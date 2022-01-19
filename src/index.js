@@ -16,8 +16,26 @@ const onClickAdd = () => {
   todoLi.innerText = inputText;
   console.log(todoLi);
 
+  // 完了ボタン生成
+  const completeButton = document.createElement("button");
+  completeButton.innerText = "完了";
+  completeButton.addEventListener("click", () => {
+    alert("完了");
+  });
+  console.log(completeButton);
+
+  // 削除ボタン生成
+  const deleteButton = document.createElement("button");
+  deleteButton.innerText = "削除";
+  deleteButton.addEventListener("click", () => {
+    alert("削除");
+  });
+  console.log(deleteButton);
+
   // divの下にliを入れる
   todoDiv.appendChild(todoLi);
+  todoDiv.appendChild(completeButton);
+  todoDiv.appendChild(deleteButton);
 
   // 未完了リストに追加
   document.getElementById("incomplete-list").appendChild(todoDiv);
