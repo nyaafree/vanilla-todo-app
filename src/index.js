@@ -6,15 +6,18 @@ const onClickAdd = () => {
   console.log(inputText);
   document.getElementById("add-text").value = "";
 
+  // liタグ生成
+  const todoLi = document.createElement("li");
+
   // divタグ生成
   const todoDiv = document.createElement("div");
   console.log(todoDiv);
   todoDiv.className = "list-row";
 
-  // liタグ生成
-  const todoLi = document.createElement("li");
-  todoLi.innerText = inputText;
-  console.log(todoLi);
+  // pタグ生成
+  const todoParagraph = document.createElement("p");
+  todoParagraph.innerText = inputText;
+  console.log(todoParagraph);
 
   // 完了ボタン生成
   const completeButton = document.createElement("button");
@@ -28,17 +31,23 @@ const onClickAdd = () => {
   const deleteButton = document.createElement("button");
   deleteButton.innerText = "削除";
   deleteButton.addEventListener("click", () => {
-    alert("削除");
+    // alert("削除");
+    const deleteTarget = deleteButton.closest("li");
+    console.log(deleteTarget);
   });
   console.log(deleteButton);
 
-  // divの下にliを入れる
-  todoDiv.appendChild(todoLi);
+  // liの下にdivを入れる
+  todoLi.appendChild(todoDiv);
+
+  // divの下にpタグを入れる
+  todoDiv.appendChild(todoParagraph);
   todoDiv.appendChild(completeButton);
   todoDiv.appendChild(deleteButton);
 
   // 未完了リストに追加
-  document.getElementById("incomplete-list").appendChild(todoDiv);
+  document.getElementById("incomplete-list").appendChild(todoLi);
+  console.log(todoLi);
 };
 
 document
