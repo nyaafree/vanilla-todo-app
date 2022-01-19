@@ -33,7 +33,7 @@ const onClickAdd = () => {
   deleteButton.addEventListener("click", () => {
     // alert("削除");
     const deleteTarget = deleteButton.closest("li");
-    console.log(deleteTarget);
+    document.getElementById("incomplete-list").removeChild(deleteTarget);
   });
   console.log(deleteButton);
 
